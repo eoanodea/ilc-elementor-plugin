@@ -99,6 +99,7 @@ class Plugin {
 	 * @access private
 	 */
 	private function include_widgets_files() {
+		require_once( __DIR__ . '/skins/skin-ilc-cards.php' );
 		require_once( __DIR__ . '/widgets/ilc-carousel.php' );
 		require_once( __DIR__ . '/widgets/ilc-post-list.php' );
 		require_once( __DIR__ . '/interface/wpfp-interface.php' );
