@@ -13,7 +13,7 @@ namespace ILC\Widgets;
 use ElementorPro\Modules\Posts\Skins;
 use ElementorPro\Modules\Posts\Widgets\Posts;
 // require_once(__DIR__ .'../skins/skin-ilc-cards.php');
-use ILC\Skin_ILC_Cards;
+use ILC\Skins\Skin_ILC_Cards;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
