@@ -117,6 +117,7 @@ class Plugin {
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ILC_Carousel() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ILC_Posts() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Inline_Editing() );
 	}
 

@@ -6,7 +6,7 @@ use Elementor\Controls_Manager;
 
 // define('WP_DEBUG', true);
 // get_my_favs();
-// if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Elementor Hello World
