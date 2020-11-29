@@ -100,6 +100,7 @@ class Plugin {
 	 */
 	private function include_widgets_files() {
 		require_once( __DIR__ . '/widgets/ilc-carousel.php' );
+		require_once( __DIR__ . '/widgets/ilc-post-list.php' );
 		require_once( __DIR__ . '/interface/wpfp-interface.php' );
 	}
 
