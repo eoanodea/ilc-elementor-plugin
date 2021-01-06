@@ -54,17 +54,9 @@ class ILC_Posts extends Posts {
 	protected function _register_controls() {
 		parent::_register_controls();
 
-		$this->register_advanced_section_controls();
-
 		$this->register_query_section_controls();
 		$this->register_pagination_section_controls();
 
-		$this->update_control(
-			'pagination_type',
-			[
-				'default' => 'numbers',
-			]
-		);
 	}
 
 	// public function query_posts() {
