@@ -28,15 +28,31 @@ class Skin_ILC_Cards extends Skin_Cards {
 	// 	parent::register_controls($widget);
 		
 	// }
-	public function register_skin_controls( Widget_Base $widget ) {
-		// parent::register_controls($widget);
-		$this->parent = $widget;
-		parent::register_post_count_control();
-		parent::register_row_gap_control();
-		parent::register_thumbnail_controls();
-		parent::register_title_controls();
-		parent::register_meta_data_controls();
-		parent::register_link_controls();
+	// public function register_skin_controls( Widget_Base $widget ) {
+	// 	// parent::register_controls($widget);
+	// 	$this->parent = $widget;
+	// 	parent::register_columns_controls();
+	// 	$this->register_post_count_control();
+	// 	$this->register_thumbnail_controls();
+	// 	$this->register_title_controls();
+	// 	$this->register_excerpt_controls();
+	// 	$this->register_meta_data_controls();
+	// 	$this->register_read_more_controls();
+	// 	$this->register_link_controls();
+	// 	$this->register_badge_controls();
+	// 	$this->register_avatar_controls();
+	// }
+
+
+	protected function _register_controls_actions() {
+		parent::_register_controls_actions();
+
+		add_action( 'elementor/element/archive-posts/section_layout/before_section_end', [ $this, 'register_skin_controls' ] );
 	}
 
+
+	public function get_container_class() {
+		// Use parent class and parent css.
+		return 'elementor-posts--skin-cards';
+	}
 }
