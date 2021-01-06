@@ -1,7 +1,7 @@
 <?php
 namespace ILC\Skins;
 
-use ElementorPro\Modules\Posts\Skins\Skin_Cards;
+use ElementorPro\Modules\Posts\Skins\Skin_Full_Content;
 // use Elementor\Controls_Manager;
 // use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 // use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
@@ -13,6 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Skin_ILC_Cards extends Skin_Cards {
+class Skin_ILC_Cards extends Skin_Full_Content {
     
 }
