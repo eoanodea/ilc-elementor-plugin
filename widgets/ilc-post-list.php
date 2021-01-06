@@ -42,20 +42,29 @@ class ILC_Posts extends Posts {
 	// 		$element['settings']['posts_post_type'] = 'post';
 	// 	}
 
-	// 	return $element;
+	// 	return $element; 
 	// }
 
 	protected function _register_skins() {
-		// $this->add_skin( new Skins\Skin_Classic( $this ) );
+		$this->add_skin( new Skins\Skin_Classic( $this ) );
 		$this->add_skin( new Skin_ILC_Cards( $this ) );
-		// $this->add_skin( new Skins\Skin_Full_Content( $this ) );
+		$this->add_skin( new Skins\Skin_Full_Content( $this ) );
 	}
 
 	protected function _register_controls() {
 		parent::_register_controls();
 
+		$this->register_advanced_section_controls();
+
 		$this->register_query_section_controls();
 		$this->register_pagination_section_controls();
+
+		$this->update_control(
+			'pagination_type',
+			[
+				'default' => 'numbers',
+			]
+		);
 	}
 
 	// public function query_posts() {
