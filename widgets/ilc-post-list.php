@@ -30,7 +30,7 @@ class ILC_Posts extends Posts {
 	}
 
 	public function get_title() {
-		return __( 'ILC_Posts', 'elementor-pro' );
+		return __( 'ILC Posts', 'elementor-pro' );
 	}
 
 	// public function get_keywords() {
