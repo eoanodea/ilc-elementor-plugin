@@ -10,6 +10,11 @@ namespace ILC\Widgets;
 // use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
 // use Elementor\Widget_Base;
 // use Elementor\Controls_Manager;
+use Elementor\Controls_Manager;
+use ElementorPro\Modules\QueryControl\Module as Module_Query;
+use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
+
+
 use ElementorPro\Modules\Posts\Skins;
 use ElementorPro\Modules\Posts\Widgets\Posts;
 // require_once(__DIR__ .'../skins/skin-ilc-cards.php');
