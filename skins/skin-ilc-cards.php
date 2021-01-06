@@ -29,13 +29,14 @@ class Skin_ILC_Cards extends Skin_Cards {
 		
 	// }
 	public function register_skin_controls( Widget_Base $widget ) {
+		// parent::register_controls($widget);
 		$this->parent = $widget;
-		$this->register_post_count_control();
-		$this->register_row_gap_control();
-		$this->register_thumbnail_controls();
-		$this->register_title_controls();
-		$this->register_meta_data_controls();
-		$this->register_link_controls();
+		parent::register_post_count_control();
+		parent::register_row_gap_control();
+		parent::register_thumbnail_controls();
+		parent::register_title_controls();
+		parent::register_meta_data_controls();
+		parent::register_link_controls();
 	}
 
 }
