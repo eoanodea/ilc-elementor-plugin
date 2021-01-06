@@ -1,6 +1,8 @@
 <?php
 namespace ILC;
 
+use Elementor\Controls_Manager;
+
 // use ILC\PageSettings\Page_Settings;
 
 /**
@@ -101,8 +103,34 @@ class Plugin {
 	private function include_widgets_files() {
 		require_once( __DIR__ . '/skins/skin-ilc-cards.php' );
 		require_once( __DIR__ . '/widgets/ilc-carousel.php' );
-		require_once( __DIR__ . '/widgets/ilc-post-list.php' );
+		// require_once( __DIR__ . '/widgets/ilc-post-list.php' );
 		require_once( __DIR__ . '/interface/wpfp-interface.php' );
+
+		add_action( 'elementor/element/posts/cards_section_design_image/before_section_end', [ $this, 'extend_posts' ] );
+
+	}
+
+	public function extend_posts() {
+		$this->add_control(
+			'badge_radius',
+			[
+				'label' => __( 'Border Radius', 'elementor-pro' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min'=> 40,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-post__card .elementor-post__badge' => 'border-radius: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					$this->get_control_id( 'show_badge' ) => 'yes',
+				],
+			]
+		);
+
 	}
 
 	/**
@@ -119,7 +147,7 @@ class Plugin {
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ILC_Carousel() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ILC_Posts() );
+		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ILC_Posts() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Inline_Editing() );
 	}
 

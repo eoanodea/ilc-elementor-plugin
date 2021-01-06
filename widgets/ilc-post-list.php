@@ -49,6 +49,11 @@ class ILC_Posts extends Posts_Base {
 		return [ 'posts', 'cpt', 'item', 'loop', 'query', 'cards', 'custom post type' ];
 	}
 
+
+	// add_action( 'elementor/element/posts/cards_section_design_image/before_section_end', [ $this, 'register_additional_design_image_controls' ] );
+
+
+
 	public function on_import( $element ) {
 		if ( ! get_post_type_object( $element['settings']['posts_post_type'] ) ) {
 			$element['settings']['posts_post_type'] = 'post';
