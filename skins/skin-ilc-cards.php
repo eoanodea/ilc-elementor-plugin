@@ -16,12 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Skin_ILC_Cards extends Skin_Cards {
   
-	protected function _register_controls_actions() {
-		add_action( 'elementor/element/archive-posts/section_layout/before_section_end', [ $this, 'register_controls' ] );
-		add_action( 'elementor/element/archive-posts/section_layout/after_section_end', [ $this, 'register_style_sections' ] );
-		add_action( 'elementor/element/archive-posts/archive_cards_section_design_image/before_section_end', [ $this, 'register_additional_design_image_controls' ] );
-	}
-
 	public function get_id() {
 		return 'ilc_cards';
 	}
@@ -30,11 +24,18 @@ class Skin_ILC_Cards extends Skin_Cards {
 		return __( 'ILC Cards', 'elementor-pro' );
 	}
 
-	public function get_container_class() {
-		// Use parent class and parent css.
-		return 'elementor-posts--skin-cards';
+	// public function register_controls( Widget_Base $widget ) {
+	// 	parent::register_controls($widget);
+		
+	// }
+	public function register_skin_controls( Widget_Base $widget ) {
+		$this->parent = $widget;
+		$this->register_post_count_control();
+		$this->register_row_gap_control();
+		$this->register_thumbnail_controls();
+		$this->register_title_controls();
+		$this->register_meta_data_controls();
+		$this->register_link_controls();
 	}
 
-	/* Remove `posts_per_page` control */
-	protected function register_post_count_control(){}
 }
