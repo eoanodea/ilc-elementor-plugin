@@ -66,14 +66,14 @@ class Plugin {
 	 * @access public
 	 */
 	public function widget_scripts() {
-		// wp_register_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
+		wp_register_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
 
 
 
-		$plugin_url = plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ );
+		// $plugin_url = plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ );
 		// $plugin_data = get_plugin_data(__FILE__);
 		// $plugin_version = $plugin_data['Version'];
-		wp_enqueue_script('script', $plugin_url, [ 'jquery' ], false, true );
+		// wp_enqueue_script('script', $plugin_url, [ 'jquery' ], false, true );
 
 	}
 
