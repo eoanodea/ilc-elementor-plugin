@@ -1,3 +1,22 @@
+/*
+ * File: plugin.php
+ * Project: ILC_WP_PLUGIN
+ * Version <<projectversion>>
+ * File Created: Monday, 18th January 2021 5:29:18 pm
+ * Author: Eoan O'Dea (eoan@web-space.design)
+ * -----
+ * File Description: 
+ * Last Modified: Monday, 18th January 2021 6:30:23 pm
+ * Modified By: Eoan O'Dea (eoan@web-space.design>)
+ * -----
+ * Copyright 2021 WebSpace, WebSpace
+ */
+
+
+
+
+
+
 <?php
 namespace ILC;
 
@@ -47,7 +66,15 @@ class Plugin {
 	 * @access public
 	 */
 	public function widget_scripts() {
-		wp_register_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
+		// wp_register_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
+
+
+
+		$plugin_url = plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ );
+		// $plugin_data = get_plugin_data(__FILE__);
+		// $plugin_version = $plugin_data['Version'];
+		wp_enqueue_script('script', $plugin_url, [ 'jquery' ], false, true );
+
 	}
 
 	/**
@@ -152,7 +179,7 @@ class Plugin {
 	public function __construct() {
 
 		// Register widget scripts
-		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
+		// add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 
 		// Register widgets
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
@@ -165,6 +192,9 @@ class Plugin {
 		// Check if the user is logged in
 		add_action('wp_ajax_is_user_logged_in', 'ajax_check_user_logged_in');
 		add_action('wp_ajax_nopriv_is_user_logged_in', 'ajax_check_user_logged_in');
+
+		add_action('wp_enqueue_scripts', 'widget_scripts');
+
 	}
 }
 
