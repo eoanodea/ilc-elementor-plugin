@@ -788,25 +788,6 @@ abstract class Skinss_Base extends Elementor_Skin_Base
         $this->end_controls_section();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function render()
     {
         $this->parent->query_posts();
@@ -824,12 +805,15 @@ abstract class Skinss_Base extends Elementor_Skin_Base
         // It's the global `wp_query` it self. and the loop was started from the theme.
         if ($query->in_the_loop) {
             $this->current_permalink = get_permalink();
+            $this->current_id = get_the_id();
+
             $this->render_post();
         } else {
             
             while ($query->have_posts()) {
                 $query->the_post();
                 $this->current_permalink = get_permalink();
+                $this->current_id = get_the_id();
                 $this->render_post();
             }
         }
@@ -1151,6 +1135,11 @@ abstract class Skinss_Base extends Elementor_Skin_Base
 
     protected function render_post()
     {
+        ?>
+        <h1 style="position:absolute;top:10%;right:25px;"?>
+                                <img src="/wp-content/plugins/ILC_WP_Plugin/assets/svg/bkmk.svg" class="bookmarkRecipe svg" data-post-id=<?php echo '"'.$this->current_id.'"'?> data-link=<?php echo '"'. $this->current_permalink.'"'?> id=<?php echo '"bkmk-'. $this->current_id.'"' ?>></img>                             
+        </h1> 
+        <?
         $this->render_post_header();
         $this->render_thumbnail();
         $this->render_text_header();
