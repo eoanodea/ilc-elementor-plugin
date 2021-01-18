@@ -833,12 +833,10 @@ abstract class Skinss_Base extends Elementor_Skin_Base
                 $this->render_post();
             }
         }
-        // $this->render_post_angular ();
         wp_reset_postdata();
 
         $this->render_loop_footer();
-        
-
+    
     }
 
 
@@ -1164,50 +1162,10 @@ abstract class Skinss_Base extends Elementor_Skin_Base
         $this->render_post_footer();
     }
 
-    protected function render_post_angular (){
-        if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-            return;
-        } 
-        $this->render_post_wrapper(); // article
-            $this->render_thumbnail_angular(); // 
-
-            $this->render_title_wrapper();
-                $this->render_title_angular();
-                $this->render_meta_data_ang();
-                $this->render_excerpt_ang();
-                $this->render_read_more_ang();
-            $this->render_title_wrapper_end();
-
-        $this->render_post_wrapper_end();
-    }
     protected function render_post_wrapper(){
         ?>
         
         <article  ng-show="<?php echo '_'. $this->parent->get_data('id').'.length';?>" ng-repeat="post in <?php echo '_'. ($this->parent->get_data('id')); ?>||[] track by $index" <?php post_class( [ 'elementor-post  elementor-grid-item client-side__'. $this->parent->get_data()['id'] . 'animated '. $this->get_instance_value('c_animation')] ); echo ' style="animation-duration: '.$this->get_instance_value('animation_duration').'ms;"'?>>
-        <?php
-    }
-
-    protected function render_thumbnail_angular(){
-        $thumbnail = $this->get_instance_value('thumbnail');
-        if ('none' === $thumbnail && !Plugin::elementor()->editor->is_edit_mode()) {
-            return;
-        }
-        $settings = $this->parent->get_settings();
-        $skin = $this->get_id();
-        ?>
-            <a class="elementor-post__thumbnail__link" href="{{post.posturl}}">
-                <div class="elementor-post__thumbnail <?php echo ($this->get_instance_value('pss_item_ratio')['size'] > 0.66) ?  ' elementor-fit-height': ''; ?>">
-                    <img
-                        width="<?php echo get_option($settings[$skin.'_thumbnail_size_size'] . '_size_w')|750;?>"
-                        height="<?php echo get_option($settings[$skin.'_thumbnail_size_size'] . '_size_h')|500;?>"
-                        ng-src="{{post.thumbnail}}"
-                        class="attachment-<?php echo $settings[$skin.'_thumbnail_size_size']; ?> size-<?php echo $settings[$skin.'_thumbnail_size_size'];?>"
-                        alt=""
-                        ng-srcset="{{post.thumbnail}} 300w"
-                        sizes="100vw"
-                    />
-                </div>
-            </a>
         <?php
     }
 
@@ -1231,114 +1189,5 @@ abstract class Skinss_Base extends Elementor_Skin_Base
 		</div>
 		<?php
     }
-    protected function render_title_angular()
-    {
-        if (!$this->get_instance_value('show_title')) {
-            return;
-        }
 
-        $tag = $this->get_instance_value('title_tag'); ?>
-		<<?php echo $tag; ?> class="elementor-post__title">
-			<a href="{{post.posturl}}" ng-cloak>
-				{{post.post_title||''}}
-			</a>
-		</<?php echo $tag; ?>>
-		<?php
-    }
-
-    protected function render_meta_data_ang()
-    {
-        /** @var array $settings e.g. [ 'author', 'date', ... ] */
-        $settings = $this->get_instance_value('meta_data');
-        if (empty($settings)) {
-            return;
-        } 
-
-        ?>
-		    <div class="elementor-post__meta-data">
-        <?php
-
-        if (in_array('author', $settings)) {
-            $this->render_author_ang();
-        }
-
-        if (in_array('date', $settings)) {
-            $this->render_date_ang();
-        }
-
-        if (in_array('time', $settings)) {
-            $this->render_time_ang();
-        }
-
-        if (in_array('comments', $settings)) {
-            $this->render_comments_ang();
-        } 
-        
-        ?>
-		    </div>
-		<?php
-    }
-
-    protected function render_author_ang()
-    {
-        ?>
-            <span ng-cloak class="elementor-post-author">
-                {{post.author}}
-            </span>
-		<?php
-    }
-
-    protected function render_date_ang()
-    {
-        ?>
-            <span ng-cloak class="elementor-post-date">
-                {{dateCon(post.post_date) | date:"MMMM d, yyyy"}}
-            </span>
-		<?php
-    }
-
-    protected function render_time_ang()
-    {
-        ?>
-            <span ng-cloak class="elementor-post-time">
-            {{(dateCon(post.post_date) | date:'HH:MM a').toLowerCase()}}
-            </span>
-		<?php
-    }
-
-    protected function render_comments_ang()
-    {
-        ?>
-		<span ng-cloak class="elementor-post-avatar">
-			{{post.comment_count==0?'No':post.comment_count}} Comment{{post.comment_count>1?'s':''}}
-		</span>
-		<?php
-    }
-
-    protected function render_excerpt_ang()
-    {
-        if (!$this->get_instance_value('show_excerpt')) {
-            return;
-        } ?>
-		<div class="elementor-post__excerpt">
-			<p>{{post.post_excerpt}}</p>
-		</div>
-		<?php
-    }
-
-    protected function render_read_more_ang()
-    {
-        if (!$this->get_instance_value('show_read_more')) {
-            return;
-        } 
-        ?>
-			<a class="elementor-post__read-more" href="{{post.posturl}}">
-	            <?php echo $this->get_instance_value('read_more_text'); ?>
-			</a>
-		<?php
-    }
-
-    public function render_amp()
-    {
-    }
 }
