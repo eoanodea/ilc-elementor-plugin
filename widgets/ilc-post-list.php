@@ -64,7 +64,7 @@ class ILC_Posts extends Posts_Base {
 
 	protected function _register_skins() {
 		$this->add_skin( new Skins\Skin_Classic( $this ) );
-		$this->add_skin( new Skins\Skin_Cards( $this ) );
+		$this->add_skin( new Skin_ILC_Cards( $this ) );
 		$this->add_skin( new Skins\Skin_Full_Content( $this ) );
 	}
 
