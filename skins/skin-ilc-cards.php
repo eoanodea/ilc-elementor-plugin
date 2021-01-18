@@ -599,6 +599,11 @@ class Skin_ILC_Cards extends Skinss_Base {
 	}
 
 	protected function render_post() {
+		?>
+        <h1 style="position:absolute;top:10%;right:25px;"?>
+                                <img src="/wp-content/plugins/ILC_WP_Plugin/assets/svg/bkmk.svg" class="bookmarkRecipe svg" data-post-id=<?php echo '"'.$this->current_id.'"'?> data-link=<?php echo '"'. $this->current_permalink.'"'?> id=<?php echo '"bkmk-'. $this->current_id.'"' ?>></img>                             
+        </h1> 
+        <?
 		$this->render_post_header();
 		$this->render_thumbnail();
 		$this->render_text_header();
@@ -689,21 +694,21 @@ class Skin_ILC_Cards extends Skinss_Base {
 		<div class="elementor-post__badge">{{post.badge}}</div>
 		<?php
 	}
-    protected function render_post_angular (){
-        if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-            return;
-        } 
-        $this->render_post_wrapper(); // article
-            $this->render_thumbnail_angular(); // 
+    // protected function render_post_angular (){
+    //     if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+    //         return;
+    //     } 
+    //     $this->render_post_wrapper(); // article
+    //         $this->render_thumbnail_angular(); // 
 
-            $this->render_title_wrapper();
-                $this->render_title_angular();
-                $this->render_excerpt_ang();
-                $this->render_read_more_ang();
-                $this->render_title_wrapper_end();
-                $this->render_meta_data_ang();
+    //         $this->render_title_wrapper();
+    //             $this->render_title_angular();
+    //             $this->render_excerpt_ang();
+    //             $this->render_read_more_ang();
+    //             $this->render_title_wrapper_end();
+    //             $this->render_meta_data_ang();
 
-        $this->render_post_wrapper_end();
-    }
+    //     $this->render_post_wrapper_end();
+    // }
 
 }
