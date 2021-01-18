@@ -48,6 +48,8 @@ class Skin_ILC_Cards extends Skin_Cards {
 		parent::_register_controls_actions();
 
 		add_action( 'elementor/element/ilc_posts/section_layout/before_section_end', [ $this, 'register_skin_controls' ] );
+		add_action( 'elementor/element/ilc_posts/cards_section_design_image/before_section_end', [ $this, 'register_additional_design_image_controls' ] );
+
 	}
 
 
