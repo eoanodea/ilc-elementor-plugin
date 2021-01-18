@@ -90,3 +90,14 @@ window.addEventListener('load', async function () {
         }, 'xml');
     })
 })
+
+//Wait for jQuery to load
+jQuery(document).ready(function ($) {
+    
+    if(jQuery('body').hasClass('logged-in')) {
+        $('#header-cookbook').first().removeClass('hide')
+    } else {
+        $('#header-login').first().removeClass('hide')
+    }
+  });
+

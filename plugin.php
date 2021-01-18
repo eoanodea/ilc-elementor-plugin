@@ -136,6 +136,11 @@ class Plugin {
 		// new Page_Settings();
 	}
 
+	public function ajax_check_user_logged_in() {
+		echo is_user_logged_in()?'yes':'no';
+		die();
+	}
+
 	/**
 	 *  Plugin class constructor
 	 *
@@ -156,6 +161,10 @@ class Plugin {
 		add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'editor_scripts' ] );
 		
 		// $this->add_page_settings_controls();
+
+		// Check if the user is logged in
+		add_action('wp_ajax_is_user_logged_in', 'ajax_check_user_logged_in');
+		add_action('wp_ajax_nopriv_is_user_logged_in', 'ajax_check_user_logged_in');
 	}
 }
 
