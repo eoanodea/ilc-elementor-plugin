@@ -599,12 +599,13 @@ class Skin_ILC_Cards extends Skinss_Base {
 	}
 
 	protected function render_post() {
+		
+		$this->render_post_header();
 		?>
-        <h1 style="position:absolute;top:10%;right:25px;"?>
+        <h1 style="position:absolute;top:10px;right:25px;"?>
                                 <img src="/wp-content/plugins/ILC_WP_Plugin/assets/svg/bkmk.svg" class="bookmarkRecipe svg" data-post-id=<?php echo '"'.$this->current_id.'"'?> data-link=<?php echo '"'. $this->current_permalink.'"'?> id=<?php echo '"bkmk-'. $this->current_id.'"' ?>></img>                             
         </h1> 
         <?
-		$this->render_post_header();
 		$this->render_thumbnail();
 		$this->render_text_header();
 		$this->render_title();
