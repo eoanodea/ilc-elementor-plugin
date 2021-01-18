@@ -46,7 +46,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 	protected function _register_controls_actions() {
 		parent::_register_controls_actions();
 
-		add_action( 'elementor/element/pss/cards_section_design_image/before_section_end', [ $this, 'register_additional_design_image_controls' ] );
+		add_action( 'elementor/element/ilc_cards/cards_section_design_image/before_section_end', [ $this, 'register_additional_design_image_controls' ] );
     }
     
 	public function register_controls( Widget_Base $widget ) {  // from parent
@@ -76,10 +76,10 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->update_control(
 			'thumbnail',
 			[
-				'label' => __( 'Show Image', 'jaxer-element' ),
+				'label' => __( 'Show Image', 'ilc-elements' ),
 				'options' => [
-					'top' => __( 'Yes', 'jaxer-element' ),
-					'none' => __( 'No', 'jaxer-element' ),
+					'top' => __( 'Yes', 'ilc-elements' ),
+					'none' => __( 'No', 'ilc-elements' ),
 				],
 				'render_type' => 'template',
 			]
@@ -114,7 +114,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'heading_badge_style',
 			[
-				'label' => __( 'Badge', 'jaxer-element' ),
+				'label' => __( 'Badge', 'ilc-elements' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -131,11 +131,11 @@ class Skin_ILC_Cards extends Skinss_Base {
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'jaxer-element' ),
+						'title' => __( 'Left', 'ilc-elements' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => __( 'Right', 'jaxer-element' ),
+						'title' => __( 'Right', 'ilc-elements' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -152,7 +152,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'badge_bg_color',
 			[
-				'label' => __( 'Background Color', 'jaxer-element' ),
+				'label' => __( 'Background Color', 'ilc-elements' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card .elementor-post__badge' => 'background-color: {{VALUE}};',
@@ -170,7 +170,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'badge_color',
 			[
-				'label' => __( 'Text Color', 'jaxer-element' ),
+				'label' => __( 'Text Color', 'ilc-elements' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card .elementor-post__badge' => 'color: {{VALUE}};',
@@ -184,7 +184,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'badge_radius',
 			[
-				'label' => __( 'Border Radius', 'jaxer-element' ),
+				'label' => __( 'Border Radius', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -203,7 +203,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'badge_size',
 			[
-				'label' => __( 'Size', 'jaxer-element' ),
+				'label' => __( 'Size', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -223,7 +223,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'badge_margin',
 			[
-				'label' => __( 'Margin', 'jaxer-element' ),
+				'label' => __( 'Margin', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -258,7 +258,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'heading_avatar_style',
 			[
-				'label' => __( 'Avatar', 'jaxer-element' ),
+				'label' => __( 'Avatar', 'ilc-elements' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -271,7 +271,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'avatar_size',
 			[
-				'label' => __( 'Size', 'jaxer-element' ),
+				'label' => __( 'Size', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -295,10 +295,10 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'show_badge',
 			[
-				'label' => __( 'Badge', 'jaxer-element' ),
+				'label' => __( 'Badge', 'ilc-elements' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'jaxer-element' ),
-				'label_off' => __( 'Hide', 'jaxer-element' ),
+				'label_on' => __( 'Show', 'ilc-elements' ),
+				'label_off' => __( 'Hide', 'ilc-elements' ),
 				'default' => 'yes',
 				'separator' => 'before',
 			]
@@ -307,7 +307,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'badge_taxonomy',
 			[
-				'label' => __( 'Badge Taxonomy', 'jaxer-element' ),
+				'label' => __( 'Badge Taxonomy', 'ilc-elements' ),
 				'type' => Controls_Manager::SELECT2,
 				'label_block' => true,
 				'default' => 'category',
@@ -323,10 +323,10 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'show_avatar',
 			[
-				'label' => __( 'Avatar', 'jaxer-element' ),
+				'label' => __( 'Avatar', 'ilc-elements' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'jaxer-element' ),
-				'label_off' => __( 'Hide', 'jaxer-element' ),
+				'label_on' => __( 'Show', 'ilc-elements' ),
+				'label_off' => __( 'Hide', 'ilc-elements' ),
 				'return_value' => 'show-avatar',
 				'default' => 'show-avatar',
 				'separator' => 'before',
@@ -343,7 +343,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->start_controls_section(
 			'section_design_card',
 			[
-				'label' => __( 'Card', 'jaxer-element' ),
+				'label' => __( 'Card', 'ilc-elements' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -351,7 +351,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'card_bg_color',
 			[
-				'label' => __( 'Background Color', 'jaxer-element' ),
+				'label' => __( 'Background Color', 'ilc-elements' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card' => 'background-color: {{VALUE}}',
@@ -362,7 +362,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'card_border_color',
 			[
-				'label' => __( 'Border Color', 'jaxer-element' ),
+				'label' => __( 'Border Color', 'ilc-elements' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card' => 'border-color: {{VALUE}}',
@@ -373,7 +373,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'card_border_width',
 			[
-				'label' => __( 'Border Width', 'jaxer-element' ),
+				'label' => __( 'Border Width', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -391,7 +391,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'card_border_radius',
 			[
-				'label' => __( 'Border Radius', 'jaxer-element' ),
+				'label' => __( 'Border Radius', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -409,7 +409,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'card_padding',
 			[
-				'label' => __( 'Horizontal Padding', 'jaxer-element' ),
+				'label' => __( 'Horizontal Padding', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -429,7 +429,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'card_vertical_padding',
 			[
-				'label' => __( 'Vertical Padding', 'jaxer-element' ),
+				'label' => __( 'Vertical Padding', 'ilc-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -447,7 +447,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'box_shadow_box_shadow_type', // The name of this control is like that, for future extensibility to group_control box shadow.
 			[
-				'label' => __( 'Box Shadow', 'jaxer-element' ),
+				'label' => __( 'Box Shadow', 'ilc-elements' ),
 				'type' => Controls_Manager::SWITCHER,
 				'prefix_class' => 'elementor-card-shadow-',
 				'default' => 'yes',
@@ -457,14 +457,14 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'hover_effect',
 			[
-				'label' => __( 'Hover Effect', 'jaxer-element' ),
+				'label' => __( 'Hover Effect', 'ilc-elements' ),
 				'type' => Controls_Manager::SELECT,
 				'label_block' => false,
 				'options' => [
-					'none' => __( 'None', 'jaxer-element' ),
-					'gradient' => __( 'Gradient', 'jaxer-element' ),
-					//'zoom-in' => __( 'Zoom In', 'jaxer-element' ),
-					//'zoom-out' => __( 'Zoom Out', 'jaxer-element' ),
+					'none' => __( 'None', 'ilc-elements' ),
+					'gradient' => __( 'Gradient', 'ilc-elements' ),
+					//'zoom-in' => __( 'Zoom In', 'ilc-elements' ),
+					//'zoom-out' => __( 'Zoom Out', 'ilc-elements' ),
 				],
 				'default' => 'gradient',
 				'separator' => 'before',
@@ -475,7 +475,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'meta_border_color',
 			[
-				'label' => __( 'Meta Border Color', 'jaxer-element' ),
+				'label' => __( 'Meta Border Color', 'ilc-elements' ),
 				'type' => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
@@ -491,7 +491,7 @@ class Skin_ILC_Cards extends Skinss_Base {
 		$this->add_control(
 			'card_bg_color',
 			[
-				'label' => __( 'Background Color', 'jaxer-element' ),
+				'label' => __( 'Background Color', 'ilc-elements' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card' => 'background-color: {{VALUE}}',

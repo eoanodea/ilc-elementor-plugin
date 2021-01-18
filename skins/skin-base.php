@@ -833,7 +833,7 @@ abstract class Skinss_Base extends Elementor_Skin_Base
                 $this->render_post();
             }
         }
-        $this->render_post_angular ();
+        // $this->render_post_angular ();
         wp_reset_postdata();
 
         $this->render_loop_footer();
@@ -1163,12 +1163,6 @@ abstract class Skinss_Base extends Elementor_Skin_Base
         $this->render_text_footer();
         $this->render_post_footer();
     }
-
-
-
-
-
-
 
     protected function render_post_angular (){
         if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
