@@ -35,7 +35,7 @@ class ILC_Posts extends Posts_Base {
 	}
 
 	public function get_title() {
-		return __( 'ILC Posts', 'elementor-pro' );
+		return __( 'ILC Posts', 'ilc-elements' );
 	}
 
 	// protected function _register_skins() {
@@ -91,7 +91,7 @@ class ILC_Posts extends Posts_Base {
 		$this->start_controls_section(
 			'section_query',
 			[
-				'label' => __( 'Query', 'elementor-pro' ),
+				'label' => __( 'Query', 'ilc-elements' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
