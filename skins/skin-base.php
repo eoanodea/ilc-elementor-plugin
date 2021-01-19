@@ -13,6 +13,8 @@ use Elementor\Scheme_Typography;
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Widget_Base;
 
+use \WpfpInterface\Wrapper;
+
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
@@ -801,6 +803,31 @@ abstract class Skinss_Base extends Elementor_Skin_Base
         }
 
         $this->render_loop_header();
+
+        // hhhhhh
+        echo "</script>";
+
+        $userFavs= new Wrapper();
+        $userFavs= $userFavs->all_posts();
+        if ($userFavs){
+        ?>
+            // Add active class to selector
+            const ilcPostIds=()=> [<?php
+            $c = 0;
+            foreach($userFavs as $post_id ) {
+                $c++;
+                echo $post_id;
+                if($c!=count($userFavs)){
+                    echo ",";
+                }
+            }?>]
+        <?php
+        }else{
+            echo "console.log('No posts');";
+            echo "const ilcPostIds=()=> []";
+        }
+        echo "</script>";
+        ////////
 
         // It's the global `wp_query` it self. and the loop was started from the theme.
         if ($query->in_the_loop) {

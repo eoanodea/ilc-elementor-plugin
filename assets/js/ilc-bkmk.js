@@ -6,7 +6,7 @@
  * Author: Eoan O'Dea (eoan@web-space.design)
  * -----
  * File Description:
- * Last Modified: Tuesday, 19th January 2021 4:37:42 pm
+ * Last Modified: Tuesday, 19th January 2021 5:27:49 pm
  * Modified By: Eoan O'Dea (eoan@web-space.design>)
  * -----
  * Copyright 2021 WebSpace, WebSpace
@@ -40,14 +40,16 @@ jQuery(document).ready(function ($) {
   };
 
   window.addEventListener("load", async function () {
-    // Initiate Splide libarary
-    new Splide(".splide", {
-      type: "loop",
-      perPage: 1,
-      rewind: true,
-      autoplay: true,
-      pauseOnHover: true,
-    }).mount();
+    if (typeof Splide === "function") {
+      // Initiate Splide libarary
+      new Splide(".splide", {
+        type: "loop",
+        perPage: 1,
+        rewind: true,
+        autoplay: true,
+        pauseOnHover: true,
+      }).mount();
+    }
 
     // Convert svg images to inline svgs for better control
     const images = jQuery("img.svg");
@@ -98,7 +100,7 @@ jQuery(document).ready(function ($) {
           // Replace image with new SVG
           $img.replaceWith($svg);
           ajaxCounter = ajaxCounter + 1;
-          if (ajaxCounter === images.length) {
+          if (ajaxCounter === images.length && ilcPostIds) {
             // Mark active items
             ilcPostIds().forEach(async (post_id) => {
               const items = document.querySelectorAll(
