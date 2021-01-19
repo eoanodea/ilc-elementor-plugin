@@ -47,7 +47,7 @@ class Plugin {
 	 * @access public
 	 */
 	public function widget_scripts() {
-		wp_register_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
+		wp_enqueue_style( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
 
 
 
@@ -174,7 +174,9 @@ class Plugin {
 		add_action('wp_ajax_is_user_logged_in', 'ajax_check_user_logged_in');
 		add_action('wp_ajax_nopriv_is_user_logged_in', 'ajax_check_user_logged_in');
 
-		add_action('wp_footer', 'widget_scripts');
+		add_action('wp_enqueue_scripts', 'widget_scripts');
+
+		// add_action('wp_footer', 'widget_scripts');
 
 	}
 }

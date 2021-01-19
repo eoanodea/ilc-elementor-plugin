@@ -5,13 +5,12 @@
  * File Created: Monday, 18th January 2021 5:29:18 pm
  * Author: Eoan O'Dea (eoan@web-space.design)
  * -----
- * File Description: 
- * Last Modified: Tuesday, 19th January 2021 4:34:04 pm
+ * File Description:
+ * Last Modified: Tuesday, 19th January 2021 4:37:42 pm
  * Modified By: Eoan O'Dea (eoan@web-space.design>)
  * -----
  * Copyright 2021 WebSpace, WebSpace
  */
-
 
 //Wait for jQuery to load
 jQuery(document).ready(function ($) {
