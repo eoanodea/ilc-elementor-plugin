@@ -211,7 +211,8 @@ class ILC_Carousel extends Widget_Base {
                         
                         while ( $query->have_posts() ) { 
                             $query->the_post();
-			                $skill_level = get_the_terms(get_the_id(), 'skill_level');
+                            $skill_level = get_the_terms(get_the_id(), 'skill_level');
+                            $category = get_the_terms(get_the_id(), 'recipe_type');
                         ?>
                         <section class="item elementor-section elementor-section-boxed splide__slide" style=<?php echo '"background-image: url(\''. wp_get_attachment_image_src( get_post_thumbnail_id(get_the_id()), 'small' )[0] .'\');"'?>>
                             <div class="elementor-container cardPos">
@@ -219,7 +220,7 @@ class ILC_Carousel extends Widget_Base {
                                 <img src="/wp-content/plugins/ILC_WP_Plugin/assets/svg/bkmk.svg" class="bookmarkRecipe svg" data-post-id=<?php echo '"'.get_the_id().'"'?> data-link=<?php echo '"'. get_permalink().'"'?> id=<?php echo '"bkmk-'. get_the_id().'"' ?>></img>                             
                             </h1>
 
-                            <div class="ilc-catLabel">salads</div>
+                            <div class="ilc-catLabel"><?echo $category[0]->name?></div>
                             <div class="ilc-card">
                                 <a href=<?php echo '"'. get_permalink() .'"' ?> class="ilc-cardBody">
                                     <div class="ilc-cardtext">
