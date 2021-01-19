@@ -47,9 +47,9 @@ class Plugin {
 	 * @access public
 	 */
 	public function widget_scripts() {
-		wp_register_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
+		// wp_register_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ), [ 'jquery' ], false, true );
 
-		// wp_enqueue_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ));
+		wp_enqueue_script( 'ilc-elementor-widgets', plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ ));
 
 		// $plugin_url = plugins_url( '/assets/js/ilc-bkmk.js', __FILE__ );
 		// $plugin_data = get_plugin_data(__FILE__);
@@ -144,11 +144,6 @@ class Plugin {
 		// new Page_Settings();
 	}
 
-	public function ajax_check_user_logged_in() {
-		echo is_user_logged_in()?'yes':'no';
-		die();
-	}
-
 	/**
 	 *  Plugin class constructor
 	 *
@@ -160,7 +155,7 @@ class Plugin {
 	public function __construct() {
 
 		// Register widget scripts
-		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
+		// add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 
 		// Register widgets
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
@@ -169,14 +164,6 @@ class Plugin {
 		add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'editor_scripts' ] );
 		
 		// $this->add_page_settings_controls();
-
-		
-
-		// Check if the user is logged in
-		add_action('wp_ajax_is_user_logged_in', 'ajax_check_user_logged_in');
-		add_action('wp_ajax_nopriv_is_user_logged_in', 'ajax_check_user_logged_in');
-
-		add_action('init', 'widget_scripts');
 	}
 }
 
