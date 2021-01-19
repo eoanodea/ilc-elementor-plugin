@@ -805,12 +805,13 @@ abstract class Skinss_Base extends Elementor_Skin_Base
         $this->render_loop_header();
 
         // hhhhhh
-        echo "</script>";
+       
 
         $userFavs= new Wrapper();
         $userFavs= $userFavs->all_posts();
         if ($userFavs){
         ?>
+        <script>
             // Add active class to selector
             const ilcPostIds=()=> [<?php
             $c = 0;
