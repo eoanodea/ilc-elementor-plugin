@@ -809,9 +809,9 @@ abstract class Skinss_Base extends Elementor_Skin_Base
 
         $userFavs= new Wrapper();
         $userFavs= $userFavs->all_posts();
+        echo "<script>";
         if ($userFavs){
         ?>
-        <script>
             // Add active class to selector
             const ilcPostIds=()=> [<?php
             $c = 0;
