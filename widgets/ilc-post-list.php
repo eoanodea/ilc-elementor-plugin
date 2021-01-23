@@ -73,16 +73,34 @@ class ILC_Posts extends Posts_Base {
 		$this->register_pagination_section_controls();
 	}
 
+	// public function query_posts() {
+
+	// 	$query_args = [
+	// 		'posts_per_page' => $this->get_current_skin()->get_instance_value( 'posts_per_page' ),
+	// 		'paged' => $this->get_current_page(),
+	// 	];
+
+	// 	/** @var Module_Query $elementor_query */
+	// 	$elementor_query = Module_Query::instance();
+	// 	$this->query = $elementor_query->get_query( $this, 'posts', $query_args, [] );
+	// }
+
 	public function query_posts() {
+		$avoid_duplicates = $this->get_settings( 'avoid_duplicates' );
+		$query_args = Query_Control::get_query_args( 'posts', $this->get_settings() );
 
-		$query_args = [
-			'posts_per_page' => $this->get_current_skin()->get_instance_value( 'posts_per_page' ),
-			'paged' => $this->get_current_page(),
-		];
+		$query_args['posts_per_page'] = $this->get_current_skin()->get_instance_value( 'posts_per_page' );
+		$query_args['paged'] = $this->get_current_page();
 
-		/** @var Module_Query $elementor_query */
-		$elementor_query = Module_Query::instance();
-		$this->query = $elementor_query->get_query( $this, 'posts', $query_args, [] );
+		$query_id = $this->get_settings( 'posts_query_id' );
+		if ( ! empty( $query_id ) ) {
+			add_action( 'pre_get_posts', [ $this, 'pre_get_posts_filter' ] );
+			$this->query = new \WP_Query( $query_args );
+			remove_action( 'pre_get_posts', [ $this, 'pre_get_posts_filter' ] );
+		} else {
+			$this->query = new \WP_Query( $query_args );
+		}
+		Query_Control::add_to_avoid_list( wp_list_pluck( $this->query->posts, 'ID' ) );
 	}
 
 	protected function register_query_section_controls() {

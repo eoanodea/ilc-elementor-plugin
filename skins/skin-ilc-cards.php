@@ -586,8 +586,8 @@ class Skin_ILC_Cards extends Skinss_Base {
 		}
 		?>
 		<a class="elementor-post__thumbnail__link" href="<?php echo get_permalink(); ?>">
-        <div class="elementor-post__thumbnail  <?php echo ($this->get_instance_value('pss_item_ratio')['size'] > 0.66) ?  ' elementor-fit-height': ''; ?>"> <?php echo $thumbnail_html; ?> </div>
-            </a>
+			<div class="elementor-post__thumbnail  <?php echo ($this->get_instance_value('pss_item_ratio')['size'] > 0.66) ?  ' elementor-fit-height': ''; ?>"> <?php echo $thumbnail_html; ?> </div>
+		</a>
 		<?php
 		if ( $this->get_instance_value( 'show_badge' ) ) {
 			$this->render_badge();
