@@ -792,6 +792,7 @@ abstract class Skinss_Base extends Elementor_Skin_Base
 
     public function render()
     {
+
         $this->parent->query_posts();
 
         //print_r($this->get_setttings());

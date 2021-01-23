@@ -21,6 +21,11 @@ class Skin_ILC_Cards extends Skinss_Base {
 		return 'ilc_cards';
 	}
 
+	public function get_post_type() {
+		
+		return $this->parent->settings;
+	}
+
 	public function get_title() {
 		return __( 'ILC Cards', 'ilc-elements' );
 	}
