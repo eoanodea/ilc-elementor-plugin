@@ -11,7 +11,8 @@ namespace ILC\Widgets;
 // use Elementor\Widget_Base;
 // use Elementor\Controls_Manager;
 use Elementor\Controls_Manager;
-use ElementorPro\Modules\QueryControl\Module as Module_Query;
+// use ElementorPro\Modules\QueryControl\Module as Module_Query;
+use ElementorPro\Modules\QueryControl\Module as Query_Control;
 use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
 
 
