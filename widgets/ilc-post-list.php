@@ -9,6 +9,7 @@ use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
 use ElementorPro\Modules\Posts\Skins;
 use ElementorPro\Modules\Posts\Widgets\Posts_Base;
 
+use \WpfpInterface\Wrapper;
 use ILC\Skins\Skin_ILC_Cards;
 
 
@@ -60,7 +61,18 @@ class ILC_Posts extends Posts_Base {
 			'post_type' => $this->get_settings_for_display()['ilc_posts_post_type'],
 			'show_badge' => $this->get_settings_for_display()['ilc_cards_show_badge'],
 		];
-		
+
+		if($this->get_settings_for_display()['ilc_posts_query_id'] == 'my_cookbook_query') {
+			$userFavs= new Wrapper();
+			$posts= $userFavs->all_posts();
+			if(count($posts) > 0) {
+				$query_args['post__in'] = $posts;
+			} else {
+				echo 'No recipes found';
+			 return;
+			}
+		}
+
 		$this->query = new \WP_Query( $query_args );
 	}
 
