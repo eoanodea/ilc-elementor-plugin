@@ -1,24 +1,14 @@
 <?php
 namespace ILC\Widgets;
-// use Elementor\Widget_Base;
-// use Elementor\Post;
-// use Elementor\Controls_Manager;
 
-
-
-// use ElementorPro\Modules\QueryControl\Module as Module_Query;
-// use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
-// use Elementor\Widget_Base;
-// use Elementor\Controls_Manager;
 use Elementor\Controls_Manager;
 use ElementorPro\Modules\QueryControl\Module as Module_Query;
-// use ElementorPro\Modules\QueryControl\Module as Query_Control;
 use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
 
 
 use ElementorPro\Modules\Posts\Skins;
 use ElementorPro\Modules\Posts\Widgets\Posts_Base;
-// require_once(__DIR__ .'../skins/skin-ilc-cards.php');
+
 use ILC\Skins\Skin_ILC_Cards;
 
 
@@ -39,21 +29,9 @@ class ILC_Posts extends Posts_Base {
 		return __( 'ILC Posts', 'ilc-elements' );
 	}
 
-	// protected function _register_skins() {
-	// 	$this->add_skin( new Skins\Skin_Cards( $this ) );
-	// 	$this->add_skin( new Skins\Skin_Classic( $this ) );
-	// 	// $this->add_skin( new Skin_ILC_Cards( $this ) );
-	// 	// $this->add_skin( new Skins\Skin_Full_Content( $this ) );
-	// }
-
 	public function get_keywords() {
 		return [ 'posts', 'cpt', 'item', 'loop', 'query', 'cards', 'custom post type' ];
 	}
-
-
-	// add_action( 'elementor/element/posts/cards_section_design_image/before_section_end', [ $this, 'register_additional_design_image_controls' ] );
-
-
 
 	public function on_import( $element ) {
 		if ( ! get_post_type_object( $element['settings']['posts_post_type'] ) ) {
@@ -79,8 +57,13 @@ class ILC_Posts extends Posts_Base {
 		$query_args = [
 			'posts_per_page' => $this->get_current_skin()->get_instance_value( 'posts_per_page' ),
 			'paged' => $this->get_current_page(),
-			'post_type' => $this->get_settings_for_display()['ilc_posts_post_type']
+			'post_type' => $this->get_settings_for_display()['ilc_posts_post_type'],
+			'show_badge' => $this->get_settings_for_display()['ilc_cards_show_badge'],
 		];
+
+		echo '<pre>';
+// var_dump($this->get_settings_for_display());
+		echo '</pre>';
 		
 		$this->query = new \WP_Query( $query_args );
 	}

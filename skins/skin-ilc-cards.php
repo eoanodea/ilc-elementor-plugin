@@ -561,11 +561,13 @@ class Skin_ILC_Cards extends Skinss_Base {
 
 	protected function render_badge() {
 		$taxonomy = $this->get_instance_value( 'badge_taxonomy' );
+		
 		if ( empty( $taxonomy ) ) {
 			return;
 		}
 
-		$terms = get_the_terms( get_the_ID(), $taxonomy );
+		$terms = get_the_terms( get_the_ID(), 'recipe_type' );
+
 		if ( empty( $terms[0] ) ) {
 			return;
 		}
