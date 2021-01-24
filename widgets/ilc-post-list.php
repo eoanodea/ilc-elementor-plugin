@@ -60,10 +60,6 @@ class ILC_Posts extends Posts_Base {
 			'post_type' => $this->get_settings_for_display()['ilc_posts_post_type'],
 			'show_badge' => $this->get_settings_for_display()['ilc_cards_show_badge'],
 		];
-
-		echo '<pre>';
-// var_dump($this->get_settings_for_display());
-		echo '</pre>';
 		
 		$this->query = new \WP_Query( $query_args );
 	}
